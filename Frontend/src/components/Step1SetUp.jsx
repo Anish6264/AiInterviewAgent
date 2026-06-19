@@ -12,6 +12,7 @@ import axios from "axios"
 import { ServerUrl } from '../App';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
+import { toast } from 'react-hot-toast';
 function Step1SetUp({ onStart }) {
     const {userData}= useSelector((state)=>state.user)
     const dispatch = useDispatch()
@@ -55,6 +56,10 @@ function Step1SetUp({ onStart }) {
     }
 
     const handleStart = async () => {
+        if (userData && userData.credits < 50) {
+        toast.error("You need more credits to start an interview!");
+        return; // Stops the function from proceeding to the API call
+    }
         setLoading(true)
         try {
            const result = await axios.post(ServerUrl + "/api/interview/generate-questions" , {role, experience, mode , resumeText, projects, skills } , {withCredentials:true}) 

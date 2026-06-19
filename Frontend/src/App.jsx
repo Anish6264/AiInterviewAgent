@@ -10,6 +10,7 @@ import InterviewPage from './pages/InterviewPage'
 import InterviewHistory from './pages/InterviewHistory'
 import Pricing from './pages/Pricing'
 import InterviewReport from './pages/InterviewReport'
+import { Toaster } from 'react-hot-toast'
 
 export const ServerUrl  = "http://localhost:8000"
 
@@ -30,6 +31,8 @@ function App() {
 
   },[dispatch])
   return (
+    <>
+    <Toaster position="top-center" reverseOrder={false} />
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/auth' element={<Auth/>}/>
@@ -41,6 +44,7 @@ function App() {
 
 
     </Routes>
+    </>
   )
 }
 
