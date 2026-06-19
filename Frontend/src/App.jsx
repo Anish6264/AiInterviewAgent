@@ -12,7 +12,7 @@ import Pricing from './pages/Pricing'
 import InterviewReport from './pages/InterviewReport'
 import { Toaster } from 'react-hot-toast'
 
-export const ServerUrl  = "http://localhost:8000"
+export const ServerUrl  = "https://aiinterviewagent-y50p.onrender.com"
 
 function App() {
 
